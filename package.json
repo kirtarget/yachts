@@ -21,8 +21,8 @@
     "server": "nodemon ./src/server.js",
     "client": "npm run start --prefix src",
     "start_dev": "node.index.js",
-    "dev": "concurrently \"npm run server\"",
-    "build": "parcel build ./src/index.js --no-cache"
+    "dev": "concurrently \"parcel build ./src/server.js --no-cache\" \"webpack\"",
+    "build": "parcel build ./src/server.js --no-cache"
   },
   "eslintConfig": {
     "extends": []

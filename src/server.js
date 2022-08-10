@@ -36,10 +36,17 @@ setInterval(getDB, 36000000)
 // Подключение Express
 const app = express()
 app.use(express.json())
-app.use(express.static(path.join(__dirname, "frontend.build/")))
+app.use(express.static(path.join(__dirname, "frontend/build/")))
+// Роуты
+
+app.get("/api/yachts", getYachts)
+app.get("/api/country", getCountries)
+app.get("/api/region", getRegions)
+app.get("/api/locations", getLocations)
+app.get("/api/locations/:id", getLocationsById)
 app.get("*", function (req, res) {
   res.sendFile(
-    path.join(__dirname, "frontend.build/index.html"),
+    path.join(__dirname, "frontend/build/index.html"),
     function (err) {
       if (err) {
         res.status(500).send(err)
@@ -47,13 +54,6 @@ app.get("*", function (req, res) {
     }
   )
 })
-// Роуты
-app.get("/api/yachts", getYachts)
-app.get("/api/", getYachts)
-app.get("/api/country", getCountries)
-app.get("/api/region", getRegions)
-app.get("/api/locations", getLocations)
-app.get("/api/locations/:id", getLocationsById)
 
 // Запуск сервака
 
