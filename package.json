@@ -21,7 +21,7 @@
     "server": "nodemon ./src/server.js",
     "client": "npm run start --prefix src",
     "start_dev": "node.index.js",
-    "build": "concurrently \"npx parcel build ./src/server.js --no-cache\" \"webpack\""
+    "build": "npx parcel build ./src/server.js --no-cache"
   },
   "eslintConfig": {
     "extends": []
@@ -45,6 +45,7 @@
   "license": "ISC",
   "type": "module",
   "devDependencies": {
+    "@babel/core": "^7.18.10",
     "assert": "^2.0.0",
     "browserify-zlib": "^0.2.0",
     "crypto-browserify": "^3.12.0",
